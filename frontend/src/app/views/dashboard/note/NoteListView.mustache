@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead class="text-primary">
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#notes}}
+        <tr>
+          <td>{{id}}</td>
+          <td>{{title}}</td>
+          <td>
+            {{#category}}
+                {{title}}
+            {{/category}}
+          </td>
+          <td><i class="nc-icon nc-ruler-pencil"></i></td>
+          <td><i class="nc-icon nc-scissors"></i></td>
+        </tr>
+      {{/notes}}
+    </tbody>
+  </table>
+</div>
