@@ -8,4 +8,4 @@ RUN npm run build
 RUN cp -r ./dist ./../spaBuild
 WORKDIR /app
 EXPOSE 11011
-CMD [ "node", "server.js" ]
+CMD [ "npm", "run", "serve" ]
