@@ -7,7 +7,7 @@ export class AuthService {
     this.user = null;
   }
 
-  isAuthenticated() {
+  isAuthenticated(reload = true) {
     return new Promise((resolve, reject) => {
       if (!AuthHolder.getToken().token) {
         return reject(false);
@@ -17,9 +17,10 @@ export class AuthService {
           .get("/users/whoami")
           .then((response) => {
             this.user = response.data;
-            setTimeout(() => {
-              SimpleJsMvc.renderView();
-            }, 300);
+            if (reload)
+              setTimeout(() => {
+                SimpleJsMvc.renderView();
+              }, 300);
             return resolve(true);
           })
           .catch(() => {

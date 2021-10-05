@@ -2,6 +2,7 @@ import LoginView from "./../views/Login.mustache";
 import SimpleJsMvc from "../../engine/SimpleJsMvc";
 import { loginUser } from "../services/LoginService";
 import { AuthHolder } from "../services/AuthHolder";
+import { AppEngine } from "../services/AppEngine";
 
 export default class LoginController {
   constructor(reference) {
@@ -18,6 +19,12 @@ export default class LoginController {
   onInit() {
     SimpleJsMvc.bindFunction("updateForm", this.updateForm);
     SimpleJsMvc.bindFunction("onSubmit", this.onSubmit);
+    AppEngine.getInstance()
+      .authService.isAuthenticated(false)
+      .then(() => {
+        SimpleJsMvc.gotoURL("/dashboard");
+      })
+      .catch(() => {});
   }
 
   updateForm(prop, event) {

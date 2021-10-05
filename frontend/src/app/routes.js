@@ -48,7 +48,7 @@ const routes = () => {
 };
 
 export const notFound = () => {
-  SimpleJsMvc.gotoURL("/404");
+  SimpleJsMvc.gotoURL("/login");
 };
 
 export default routes;
