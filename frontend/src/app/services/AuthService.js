@@ -13,7 +13,7 @@ export class AuthService {
         return reject(false);
       } else {
         ApiCall()
-          .authorized()
+          .authorized(reload)
           .get("/users/whoami")
           .then((response) => {
             this.user = response.data;

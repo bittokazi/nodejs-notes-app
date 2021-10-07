@@ -10,7 +10,7 @@ export function ApiCall() {
         baseURL: `${Config.API_BASE_URL}`,
       });
     },
-    authorized: () => {
+    authorized: (redirect = true) => {
       let http = axios.create({
         baseURL: `${Config.API_BASE_URL}`,
         headers: {
@@ -26,7 +26,7 @@ export function ApiCall() {
             reject({ type: "noServer" });
           }
           if (error.response.status == 401 || error.response.status == 403) {
-            SimpleJsMvc.gotoURL("/login");
+            if (redirect) SimpleJsMvc.gotoURL("/login");
           } else {
             reject(error);
             return;
