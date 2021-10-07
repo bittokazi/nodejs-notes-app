@@ -34,6 +34,12 @@ export class DashboardBaseComponent {
           SimpleJsMvc.gotoURL("/login");
         });
     } else {
+      setTimeout(() => {
+        if (document.getElementById("bodyClick")) {
+          document.getElementById("bodyClick").click();
+        }
+      }, 500);
+
       if (reference.firstLoad) {
         reference.onAuthSuccess();
       }
