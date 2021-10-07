@@ -35,7 +35,6 @@ export class DashboardBaseComponent {
         });
     } else {
       if (reference.firstLoad) {
-        console.log("dd");
         reference.onAuthSuccess();
       }
     }

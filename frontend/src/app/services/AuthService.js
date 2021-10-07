@@ -20,7 +20,7 @@ export class AuthService {
             if (reload)
               setTimeout(() => {
                 SimpleJsMvc.renderView();
-              }, 300);
+              }, 1000);
             return resolve(true);
           })
           .catch(() => {
