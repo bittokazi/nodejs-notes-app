@@ -1,12 +1,13 @@
 import SimpleJsMvc from "../../../engine/SimpleJsMvc";
-import CategoryAddView from "./../../views/dashboard/category/CategoryAddView.mustache";
+import CategoryUpdateView from "./../../views/dashboard/category/CategoryUpdateView.mustache";
 import { DashboardBaseComponent } from "../../components/DashboardBaseComponent";
-import { addCategory } from "../../services/CategoryService";
+import { getCategory, updateCategory } from "../../services/CategoryService";
 
-export class CategoryAddController {
+export class CategoryUpdateController {
   constructor(reference) {
     this.data = {
       form: {
+        id: reference.id,
         title: "",
       },
       onAuthSuccess: () => {
@@ -16,13 +17,20 @@ export class CategoryAddController {
     };
   }
 
-  onInit() {
-    SimpleJsMvc.bindFunction("updateForm", this.updateForm);
-    SimpleJsMvc.bindFunction("onSubmit", this.onSubmit);
-  }
+  onInit() {}
 
   onAuthSuccess() {
     this.data.firstLoad = false;
+    SimpleJsMvc.bindFunction("updateForm", this.updateForm);
+    SimpleJsMvc.bindFunction("onSubmit", this.onSubmit);
+    getCategory(this.data.form.id)
+      .then((response) => {
+        this.data.form.title = response.data.title;
+        SimpleJsMvc.renderView();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   updateForm(prop, event) {
@@ -34,7 +42,7 @@ export class CategoryAddController {
     if (this.data.form.title.length < 1) {
       return;
     }
-    addCategory(this.data.form)
+    updateCategory(this.data.form)
       .then((response) => {
         SimpleJsMvc.gotoURL("/dashboard/categories");
       })
@@ -46,8 +54,8 @@ export class CategoryAddController {
   view() {
     return `${SimpleJsMvc.renderComponent(
       {
-        contentTemplate: CategoryAddView,
-        menuKey: "categoryAdd",
+        contentTemplate: CategoryUpdateView,
+        menuKey: "categoryList",
         ...this.data,
       },
       DashboardBaseComponent

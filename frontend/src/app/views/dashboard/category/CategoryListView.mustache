@@ -10,12 +10,20 @@
     </thead>
     <tbody>
       {{#categories}}
-        <tr>
-          <td>{{id}}</td>
-          <td>{{title}}</td>
-          <td><i class="nc-icon nc-ruler-pencil"></i></td>
-          <td><i class="nc-icon nc-scissors"></i></td>
-        </tr>
+      <tr>
+        <td>{{ id }}</td>
+        <td>{{ title }}</td>
+        <td>
+          <a
+            href="/dashboard/categories/{{ id }}/update"
+            onclick="SimpleJsMvc.
+            routeLink(event, '/dashboard/categories/{{ id }}/update')"
+          >
+            <i class="nc-icon nc-ruler-pencil"></i>
+          </a>
+        </td>
+        <td><i class="nc-icon nc-scissors"></i></td>
+      </tr>
       {{/categories}}
     </tbody>
   </table>

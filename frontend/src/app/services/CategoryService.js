@@ -7,3 +7,11 @@ export function addCategory(data) {
 export function getCategories() {
   return ApiCall().authorized().get(`/categories`);
 }
+
+export function getCategory(id) {
+  return ApiCall().authorized().get(`/categories/${id}`);
+}
+
+export function updateCategory(data) {
+  return ApiCall().authorized().put(`/categories/${data.id}`, data);
+}
