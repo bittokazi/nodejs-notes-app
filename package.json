@@ -12,6 +12,7 @@
   },
   "author": "Bitto Kazi",
   "license": "ISC",
+  "private": true,
   "dependencies": {
     "@babel/core": "^7.7.4",
     "@babel/node": "^7.7.4",

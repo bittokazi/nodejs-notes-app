@@ -6,4 +6,4 @@ const prodConfig = {
   API_BASE_URL: "https://spa-demo.webexperiment.cf/api",
 };
 
-export const Config = prodConfig;
+export const Config = devConfig;
