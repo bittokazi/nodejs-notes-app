@@ -1,3 +1,7 @@
-To Start the application run
+To Build the application
 
-> forever start -c "npm start" ./
+> docker build -t nodejs-notes-app .
+
+To Run the application
+
+> docker-compose up -d
