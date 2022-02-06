@@ -5,6 +5,7 @@ import { CategoryUpdateController } from "./controllers/dashboard/CategoryUpdate
 import { DashboardController } from "./controllers/dashboard/DashboardController";
 import { NoteAddController } from "./controllers/dashboard/NoteAddController";
 import { NoteListController } from "./controllers/dashboard/NoteListController";
+import { NoteUpdateController } from "./controllers/dashboard/NoteUpdateController";
 import LoginController from "./controllers/LoginController";
 import { NotFoundController } from "./controllers/NotFoundController";
 
@@ -49,6 +50,11 @@ const routes = () => {
       path: "/dashboard/notes",
       controller: NoteListController,
       title: "Note List | NodeJS Notes App",
+    },
+    {
+      path: "/dashboard/notes/{id}/update",
+      controller: NoteUpdateController,
+      title: "Update Note | NodeJS Notes App",
     },
   ];
 };
