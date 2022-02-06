@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "start": "concurrently \"webpack --watch\" \"webpack-dev-server --open --history-api-fallback\"",
-    "build": "webpack"
+    "start": "concurrently \"webpack --watch\" \"DEPLOY_ENV=dev webpack-dev-server --open --history-api-fallback\"",
+    "build": "DEPLOY_ENV=prod webpack"
   },
   "dependencies": {
     "axios": "^0.19.2",

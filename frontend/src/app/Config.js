@@ -6,4 +6,10 @@ const prodConfig = {
   API_BASE_URL: "https://spa-demo.bittokazi.com/api",
 };
 
-export const Config = prodConfig;
+let selectedConf = devConfig;
+
+if (process.env.DEPLOY_ENV === "prod") {
+  selectedConf = prodConfig;
+}
+
+export const Config = selectedConf;

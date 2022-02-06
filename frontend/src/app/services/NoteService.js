@@ -9,9 +9,9 @@ export function getNotes() {
 }
 
 export function getNote(id) {
-  return ApiCall().authorized().get(`/note/${id}`);
+  return ApiCall().authorized().get(`/notes/${id}`);
 }
 
 export function updateNote(data) {
-  return ApiCall().authorized().put(`/note/${data.id}`, data);
+  return ApiCall().authorized().put(`/notes/${data.id}`, data);
 }

@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   mode: "development",
@@ -25,6 +26,9 @@ module.exports = {
       { from: "./src/assets/login_page", to: "./assets/login_page" },
       { from: "./src/assets/dashboard", to: "./assets/dashboard" },
     ]),
+    new webpack.DefinePlugin({
+      "process.env.DEPLOY_ENV": JSON.stringify(process.env.DEPLOY_ENV),
+    }),
   ],
   module: {
     rules: [

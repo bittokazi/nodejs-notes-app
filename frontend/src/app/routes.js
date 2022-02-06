@@ -1,11 +1,11 @@
 import SimpleJsMvc from "../engine/SimpleJsMvc";
-import { CategoryAddController } from "./controllers/dashboard/CategoryAddController";
-import { CategoryListController } from "./controllers/dashboard/CategoryListController";
-import { CategoryUpdateController } from "./controllers/dashboard/CategoryUpdateController";
+import { CategoryAddController } from "./controllers/dashboard/category/CategoryAddController";
+import { CategoryListController } from "./controllers/dashboard/category/CategoryListController";
+import { CategoryUpdateController } from "./controllers/dashboard/category/CategoryUpdateController";
 import { DashboardController } from "./controllers/dashboard/DashboardController";
-import { NoteAddController } from "./controllers/dashboard/NoteAddController";
-import { NoteListController } from "./controllers/dashboard/NoteListController";
-import { NoteUpdateController } from "./controllers/dashboard/NoteUpdateController";
+import { NoteAddController } from "./controllers/dashboard/note/NoteAddController";
+import { NoteListController } from "./controllers/dashboard/note/NoteListController";
+import { NoteUpdateController } from "./controllers/dashboard/note/NoteUpdateController";
 import LoginController from "./controllers/LoginController";
 import { NotFoundController } from "./controllers/NotFoundController";
 
