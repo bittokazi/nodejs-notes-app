@@ -11,17 +11,25 @@
     </thead>
     <tbody>
       {{#notes}}
-        <tr>
-          <td>{{id}}</td>
-          <td>{{title}}</td>
-          <td>
-            {{#category}}
-                {{title}}
-            {{/category}}
-          </td>
-          <td><i class="nc-icon nc-ruler-pencil"></i></td>
-          <td><i class="nc-icon nc-scissors"></i></td>
-        </tr>
+      <tr>
+        <td>{{ id }}</td>
+        <td>{{ title }}</td>
+        <td>
+          {{#category}}
+          {{ title }}
+          {{/category}}
+        </td>
+        <td>
+          <a
+            href="/dashboard/notes/{{ id }}/update"
+            onclick="SimpleJsMvc.
+            routeLink(event, '/dashboard/notes/{{ id }}/update')"
+          >
+            <i class="nc-icon nc-ruler-pencil"></i>
+          </a>
+        </td>
+        <td><i class="nc-icon nc-scissors"></i></td>
+      </tr>
       {{/notes}}
     </tbody>
   </table>
