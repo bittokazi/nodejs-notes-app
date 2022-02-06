@@ -3,7 +3,7 @@ const devConfig = {
 };
 
 const prodConfig = {
-  API_BASE_URL: "https://spa-demo.webexperiment.cf/api",
+  API_BASE_URL: "https://spa-demo.bittokazi.com/api",
 };
 
-export const Config = devConfig;
+export const Config = prodConfig;
